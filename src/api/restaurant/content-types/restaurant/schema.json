@@ -1,0 +1,134 @@
+{
+  "kind": "collectionType",
+  "collectionName": "restaurants",
+  "info": {
+    "singularName": "restaurant",
+    "pluralName": "restaurants",
+    "displayName": "Restaurant"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "brand_name": {
+      "type": "string",
+      "required": true
+    },
+    "brand_logo": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "brand_wp_desktop": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "brand_wp_mobile": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "highlight_color": {
+      "type": "customField",
+      "customField": "plugin::color-picker.color",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+      "required": true
+    },
+    "display_order_now": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "order_now_link": {
+      "type": "string",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "display_order_now"
+            },
+            true
+          ]
+        }
+      },
+      "required": true
+    },
+    "display_reserve": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "reserve_type": {
+      "type": "enumeration",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "display_reserve"
+            },
+            true
+          ]
+        }
+      },
+      "required": true,
+      "enum": [
+        "popup",
+        "redirect"
+      ]
+    },
+    "reserve_link": {
+      "type": "string",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "display_reserve"
+            },
+            true
+          ]
+        }
+      },
+      "required": true
+    },
+    "display_our_menu": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "menu_pdf": {
+      "type": "media",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "display_our_menu"
+            },
+            true
+          ]
+        }
+      },
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "files"
+      ]
+    }
+  }
+}
