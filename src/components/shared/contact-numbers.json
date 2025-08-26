@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_shared_contact_numbers",
+  "info": {
+    "displayName": "Contact Numbers"
+  },
+  "options": {},
+  "attributes": {
+    "number": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

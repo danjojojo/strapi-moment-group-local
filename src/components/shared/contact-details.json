@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_shared_contact_details",
+  "info": {
+    "displayName": "Contact Details"
+  },
+  "options": {},
+  "attributes": {
+    "description": {
+      "type": "string"
+    },
+    "contacts": {
+      "type": "component",
+      "component": "shared.contacts",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

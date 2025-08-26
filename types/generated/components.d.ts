@@ -1,5 +1,37 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface SharedContactDetails extends Struct.ComponentSchema {
+  collectionName: 'components_shared_contact_details';
+  info: {
+    displayName: 'Contact Details';
+  };
+  attributes: {
+    contacts: Schema.Attribute.Component<'shared.contacts', true>;
+    description: Schema.Attribute.String;
+  };
+}
+
+export interface SharedContactNumbers extends Struct.ComponentSchema {
+  collectionName: 'components_shared_contact_numbers';
+  info: {
+    displayName: 'Contact Numbers';
+  };
+  attributes: {
+    number: Schema.Attribute.String;
+  };
+}
+
+export interface SharedContacts extends Struct.ComponentSchema {
+  collectionName: 'components_shared_contacts';
+  info: {
+    displayName: 'Contacts';
+  };
+  attributes: {
+    contact_numbers: Schema.Attribute.Component<'shared.contact-numbers', true>;
+    location: Schema.Attribute.String;
+  };
+}
+
 export interface SharedMedia extends Struct.ComponentSchema {
   collectionName: 'components_shared_media';
   info: {
@@ -65,6 +97,9 @@ export interface SharedSlider extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'shared.contact-details': SharedContactDetails;
+      'shared.contact-numbers': SharedContactNumbers;
+      'shared.contacts': SharedContacts;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;

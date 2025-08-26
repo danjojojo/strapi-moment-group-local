@@ -99,9 +99,9 @@
         "visible": {
           "==": [
             {
-              "var": "display_reserve"
+              "var": "reserve_type"
             },
-            true
+            "redirect"
           ]
         }
       },
@@ -129,6 +129,25 @@
       "allowedTypes": [
         "files"
       ]
+    },
+    "contact_details": {
+      "type": "dynamiczone",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "reserve_type"
+            },
+            "popup"
+          ]
+        }
+      },
+      "components": [
+        "shared.contact-details"
+      ],
+      "required": true,
+      "min": 1,
+      "max": 1
     }
   }
 }
