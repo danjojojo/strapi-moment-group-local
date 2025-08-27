@@ -43,6 +43,23 @@ export interface SharedMedia extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedNavLinkDetails extends Struct.ComponentSchema {
+  collectionName: 'components_shared_nav_link_details';
+  info: {
+    displayName: 'Nav Link Details';
+  };
+  attributes: {
+    hoverColor: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    hoverName: Schema.Attribute.String;
+    link: Schema.Attribute.String & Schema.Attribute.Required;
+    nameDesktop: Schema.Attribute.String & Schema.Attribute.Required;
+    nameMobile: Schema.Attribute.String & Schema.Attribute.Required;
+    type: Schema.Attribute.Enumeration<['redirect', 'page']> &
+      Schema.Attribute.Required;
+  };
+}
+
 export interface SharedQuote extends Struct.ComponentSchema {
   collectionName: 'components_shared_quotes';
   info: {
@@ -101,6 +118,7 @@ declare module '@strapi/strapi' {
       'shared.contact-numbers': SharedContactNumbers;
       'shared.contacts': SharedContacts;
       'shared.media': SharedMedia;
+      'shared.nav-link-details': SharedNavLinkDetails;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;
       'shared.seo': SharedSeo;

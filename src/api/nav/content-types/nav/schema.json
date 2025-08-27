@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "navs",
+  "info": {
+    "singularName": "nav",
+    "pluralName": "navs",
+    "displayName": "Nav"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nameDesktop": {
+      "type": "string",
+      "required": true
+    },
+    "nameMobile": {
+      "type": "string",
+      "required": true
+    },
+    "hoverName": {
+      "type": "string"
+    },
+    "hoverColor": {
+      "type": "customField",
+      "customField": "plugin::color-picker.color",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+    },
+    "type": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "redirect",
+        "page"
+      ]
+    },
+    "link": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

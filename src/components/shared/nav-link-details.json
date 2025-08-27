@@ -1,0 +1,39 @@
+{
+  "collectionName": "components_shared_nav_link_details",
+  "info": {
+    "displayName": "Nav Link Details"
+  },
+  "options": {},
+  "attributes": {
+    "nameDesktop": {
+      "type": "string",
+      "required": true
+    },
+    "nameMobile": {
+      "type": "string",
+      "required": true
+    },
+    "hoverName": {
+      "type": "string",
+      "required": false
+    },
+    "hoverColor": {
+      "type": "customField",
+      "customField": "plugin::color-picker.color",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+    },
+    "type": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "redirect",
+        "page"
+      ]
+    },
+    "link": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "config": {}
+}
