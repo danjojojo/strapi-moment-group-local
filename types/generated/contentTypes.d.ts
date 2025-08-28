@@ -548,8 +548,41 @@ export interface ApiRestaurantRestaurant extends Struct.CollectionTypeSchema {
     order_now_link: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     reserve_link: Schema.Attribute.String & Schema.Attribute.Required;
+    reserve_name: Schema.Attribute.Enumeration<['Reserve', 'Contact Us']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Reserve'>;
     reserve_type: Schema.Attribute.Enumeration<['popup', 'redirect']> &
       Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSocialMediaSocialMedia extends Struct.SingleTypeSchema {
+  collectionName: 'social_medias';
+  info: {
+    displayName: 'Social Media';
+    pluralName: 'social-medias';
+    singularName: 'social-media';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    facebook: Schema.Attribute.String;
+    instagram: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::social-media.social-media'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    tiktok: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1096,6 +1129,7 @@ declare module '@strapi/strapi' {
       'api::global.global': ApiGlobalGlobal;
       'api::nav.nav': ApiNavNav;
       'api::restaurant.restaurant': ApiRestaurantRestaurant;
+      'api::social-media.social-media': ApiSocialMediaSocialMedia;
       'api::term.term': ApiTermTerm;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

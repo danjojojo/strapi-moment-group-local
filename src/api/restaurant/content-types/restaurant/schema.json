@@ -56,21 +56,12 @@
       "required": true,
       "default": false
     },
-    "order_now_link": {
-      "type": "string",
-      "conditions": {
-        "visible": {
-          "==": [
-            {
-              "var": "display_order_now"
-            },
-            true
-          ]
-        }
-      },
-      "required": true
-    },
     "display_reserve": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "display_our_menu": {
       "type": "boolean",
       "required": true,
       "default": false
@@ -93,6 +84,39 @@
         "redirect"
       ]
     },
+    "reserve_name": {
+      "type": "enumeration",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "reserve_type"
+            },
+            "popup"
+          ]
+        }
+      },
+      "required": true,
+      "default": "Reserve",
+      "enum": [
+        "Reserve",
+        "Contact Us"
+      ]
+    },
+    "order_now_link": {
+      "type": "string",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "display_order_now"
+            },
+            true
+          ]
+        }
+      },
+      "required": true
+    },
     "reserve_link": {
       "type": "string",
       "conditions": {
@@ -106,11 +130,6 @@
         }
       },
       "required": true
-    },
-    "display_our_menu": {
-      "type": "boolean",
-      "required": true,
-      "default": false
     },
     "menu_pdf": {
       "type": "media",
