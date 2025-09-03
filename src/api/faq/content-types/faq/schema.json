@@ -1,5 +1,5 @@
 {
-  "kind": "collectionType",
+  "kind": "singleType",
   "collectionName": "faqs",
   "info": {
     "singularName": "faq",
@@ -11,13 +11,14 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "header": {
+    "page_title": {
       "type": "string",
       "required": true
     },
-    "description": {
-      "type": "text",
-      "required": true
+    "content": {
+      "type": "component",
+      "component": "shared.content",
+      "repeatable": true
     }
   }
 }

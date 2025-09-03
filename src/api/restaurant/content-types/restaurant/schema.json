@@ -167,6 +167,9 @@
       "required": true,
       "min": 1,
       "max": 1
+    },
+    "sortOrder": {
+      "type": "integer"
     }
   }
 }

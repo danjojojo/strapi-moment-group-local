@@ -1,13 +1,27 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface SharedContactDescription extends Struct.ComponentSchema {
+  collectionName: 'components_shared_contact_descriptions';
+  info: {
+    displayName: 'Contact Description';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+  };
+}
+
 export interface SharedContactDetails extends Struct.ComponentSchema {
   collectionName: 'components_shared_contact_details';
   info: {
     displayName: 'Contact Details';
   };
   attributes: {
-    contacts: Schema.Attribute.Component<'shared.contacts', true>;
-    description: Schema.Attribute.String;
+    contact_description: Schema.Attribute.Component<
+      'shared.contact-description',
+      true
+    >;
+    contact_email: Schema.Attribute.Component<'shared.contact-texts', true>;
+    contact_number: Schema.Attribute.Component<'shared.contacts', true>;
   };
 }
 
@@ -21,10 +35,31 @@ export interface SharedContactNumbers extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedContactTexts extends Struct.ComponentSchema {
+  collectionName: 'components_shared_contact_texts';
+  info: {
+    displayName: 'Contact Email';
+  };
+  attributes: {
+    contact_emails: Schema.Attribute.Component<'shared.contact-values', true>;
+    label: Schema.Attribute.String;
+  };
+}
+
+export interface SharedContactValues extends Struct.ComponentSchema {
+  collectionName: 'components_shared_contact_values';
+  info: {
+    displayName: 'Contact Emails';
+  };
+  attributes: {
+    email: Schema.Attribute.String;
+  };
+}
+
 export interface SharedContacts extends Struct.ComponentSchema {
   collectionName: 'components_shared_contacts';
   info: {
-    displayName: 'Contacts';
+    displayName: 'Contact Number';
   };
   attributes: {
     contact_numbers: Schema.Attribute.Component<'shared.contact-numbers', true>;
@@ -32,14 +67,14 @@ export interface SharedContacts extends Struct.ComponentSchema {
   };
 }
 
-export interface SharedMedia extends Struct.ComponentSchema {
-  collectionName: 'components_shared_media';
+export interface SharedContent extends Struct.ComponentSchema {
+  collectionName: 'components_shared_contents';
   info: {
-    displayName: 'Media';
-    icon: 'file-video';
+    displayName: 'Content';
   };
   attributes: {
-    file: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
+    description: Schema.Attribute.Text;
+    header: Schema.Attribute.String;
   };
 }
 
@@ -60,30 +95,6 @@ export interface SharedNavLinkDetails extends Struct.ComponentSchema {
   };
 }
 
-export interface SharedQuote extends Struct.ComponentSchema {
-  collectionName: 'components_shared_quotes';
-  info: {
-    displayName: 'Quote';
-    icon: 'indent';
-  };
-  attributes: {
-    body: Schema.Attribute.Text;
-    title: Schema.Attribute.String;
-  };
-}
-
-export interface SharedRichText extends Struct.ComponentSchema {
-  collectionName: 'components_shared_rich_texts';
-  info: {
-    description: '';
-    displayName: 'Rich text';
-    icon: 'align-justify';
-  };
-  attributes: {
-    body: Schema.Attribute.RichText;
-  };
-}
-
 export interface SharedSeo extends Struct.ComponentSchema {
   collectionName: 'components_shared_seos';
   info: {
@@ -99,30 +110,33 @@ export interface SharedSeo extends Struct.ComponentSchema {
   };
 }
 
-export interface SharedSlider extends Struct.ComponentSchema {
-  collectionName: 'components_shared_sliders';
+export interface SharedSiteRequirements extends Struct.ComponentSchema {
+  collectionName: 'components_shared_site_requirements';
   info: {
-    description: '';
-    displayName: 'Slider';
-    icon: 'address-book';
+    displayName: 'Site Requirements';
   };
   attributes: {
-    files: Schema.Attribute.Media<'images', true>;
+    link: Schema.Attribute.String & Schema.Attribute.Required;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    type: Schema.Attribute.Enumeration<['page', 'redirect']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'page'>;
   };
 }
 
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'shared.contact-description': SharedContactDescription;
       'shared.contact-details': SharedContactDetails;
       'shared.contact-numbers': SharedContactNumbers;
+      'shared.contact-texts': SharedContactTexts;
+      'shared.contact-values': SharedContactValues;
       'shared.contacts': SharedContacts;
-      'shared.media': SharedMedia;
+      'shared.content': SharedContent;
       'shared.nav-link-details': SharedNavLinkDetails;
-      'shared.quote': SharedQuote;
-      'shared.rich-text': SharedRichText;
       'shared.seo': SharedSeo;
-      'shared.slider': SharedSlider;
+      'shared.site-requirements': SharedSiteRequirements;
     }
   }
 }

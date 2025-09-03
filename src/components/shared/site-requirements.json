@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_shared_site_requirements",
+  "info": {
+    "displayName": "Site Requirements"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "required": true,
+      "default": "page",
+      "enum": [
+        "page",
+        "redirect"
+      ]
+    },
+    "link": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "config": {}
+}

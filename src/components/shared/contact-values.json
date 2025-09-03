@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_shared_contact_values",
+  "info": {
+    "displayName": "Contact Emails"
+  },
+  "options": {},
+  "attributes": {
+    "email": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

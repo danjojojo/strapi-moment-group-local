@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_shared_contact_texts",
+  "info": {
+    "displayName": "Contact Email"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "contact_emails": {
+      "type": "component",
+      "component": "shared.contact-values",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}
