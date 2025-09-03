@@ -20,6 +20,7 @@
     "@strapi/plugin-color-picker": "^5.23.0",
     "@strapi/plugin-users-permissions": "5.23.0",
     "@strapi/strapi": "5.23.0",
+    "@yunusemrejs/drag-drop-content-types-strapi5": "^1.0.11",
     "fs-extra": "^10.0.0",
     "mime-types": "^2.1.27",
     "mysql2": "3.9.8",

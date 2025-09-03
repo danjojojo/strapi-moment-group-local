@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_shared_contact_descriptions",
+  "info": {
+    "displayName": "Contact Description"
+  },
+  "options": {},
+  "attributes": {
+    "description": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

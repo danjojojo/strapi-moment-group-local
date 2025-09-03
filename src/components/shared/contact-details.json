@@ -5,12 +5,19 @@
   },
   "options": {},
   "attributes": {
-    "description": {
-      "type": "string"
+    "contact_description": {
+      "type": "component",
+      "component": "shared.contact-description",
+      "repeatable": true
     },
-    "contacts": {
+    "contact_number": {
       "type": "component",
       "component": "shared.contacts",
+      "repeatable": true
+    },
+    "contact_email": {
+      "type": "component",
+      "component": "shared.contact-texts",
       "repeatable": true
     }
   },
