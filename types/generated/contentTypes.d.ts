@@ -489,6 +489,7 @@ export interface ApiNavNav extends Struct.CollectionTypeSchema {
     nameDesktop: Schema.Attribute.String & Schema.Attribute.Required;
     nameMobile: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
+    sortOrder: Schema.Attribute.Integer;
     type: Schema.Attribute.Enumeration<['redirect', 'page']> &
       Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
@@ -540,6 +541,7 @@ export interface ApiRestaurantRestaurant extends Struct.CollectionTypeSchema {
     display_reserve: Schema.Attribute.Boolean &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<false>;
+    embed_form_link: Schema.Attribute.String & Schema.Attribute.Required;
     highlight_color: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.CustomField<'plugin::color-picker.color'>;
@@ -556,7 +558,7 @@ export interface ApiRestaurantRestaurant extends Struct.CollectionTypeSchema {
     reserve_name: Schema.Attribute.Enumeration<['Reserve', 'Contact Us']> &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'Reserve'>;
-    reserve_type: Schema.Attribute.Enumeration<['popup', 'redirect']> &
+    reserve_type: Schema.Attribute.Enumeration<['redirect', 'popup', 'embed']> &
       Schema.Attribute.Required;
     sortOrder: Schema.Attribute.Integer;
     updatedAt: Schema.Attribute.DateTime;
