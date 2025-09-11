@@ -80,8 +80,9 @@
       },
       "required": true,
       "enum": [
+        "redirect",
         "popup",
-        "redirect"
+        "embed"
       ]
     },
     "reserve_name": {
@@ -170,6 +171,20 @@
     },
     "sortOrder": {
       "type": "integer"
+    },
+    "embed_form_link": {
+      "type": "string",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "reserve_type"
+            },
+            "embed"
+          ]
+        }
+      },
+      "required": true
     }
   }
 }

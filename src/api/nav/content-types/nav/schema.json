@@ -38,6 +38,9 @@
     "link": {
       "type": "string",
       "required": true
+    },
+    "sortOrder": {
+      "type": "integer"
     }
   }
 }
