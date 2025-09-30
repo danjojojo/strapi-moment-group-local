@@ -456,6 +456,7 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
       'api::global.global'
     > &
       Schema.Attribute.Private;
+    logoUrl: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     siteDescription: Schema.Attribute.Text & Schema.Attribute.Required;
     siteName: Schema.Attribute.String & Schema.Attribute.Required;
@@ -552,6 +553,8 @@ export interface ApiRestaurantRestaurant extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     menu_pdf: Schema.Attribute.Media<'files'> & Schema.Attribute.Required;
+    modal_logo_color: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
     order_now_link: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     reserve_link: Schema.Attribute.String & Schema.Attribute.Required;

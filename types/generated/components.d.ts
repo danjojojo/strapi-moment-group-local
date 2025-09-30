@@ -73,7 +73,7 @@ export interface SharedContent extends Struct.ComponentSchema {
     displayName: 'Content';
   };
   attributes: {
-    description: Schema.Attribute.Text;
+    description: Schema.Attribute.RichText;
     header: Schema.Attribute.String;
   };
 }
